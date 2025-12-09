@@ -3,449 +3,254 @@
 
 /*------------------------------------------------------------------- 991px x 768px ---------------------------------------------------------------------*/
 
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-    .header-search {
-        padding: 15px 0px;
-    }
-}
-
-
-/*------------------------------------------------------------------- 767px x 599px ---------------------------------------------------------------------*/
-
-@media only screen and (min-width: 599px) and (max-width: 767px) {
-    .logo {
-        text-align: center;
-    }
-    .cart-content-right {
-        padding-bottom: 5px;
-    }
-    .mg {
-        margin: 0px 0px;
-    }
-    .menu-area-main {
-        height: 256px;
-        overflow-y: auto;
-    }
-    .megamenu>.row [class*="col-"] {
-        padding: 0px;
-    }
-    .menu-area-main .megamenu .men-cat {
-        padding: 0px 15px;
-    }
-    .menu-area-main .megamenu .women-cat {
-        padding: 0px 15px;
-    }
-    .menu-area-main .megamenu .el-cat {
-        padding: 0px 15px;
-    }
-    .mean-container .mean-nav ul li a.mean-expand {
-        height: 19px;
-    }
-    .category-box.women-box {
-        display: none;
-    }
-    .cart-box {
-        display: inline-block;
-        margin: 0px 30px;
-    }
-    .wish-box {
-        float: none;
-        margin: 0px 30px;
-        display: inline-block;
-    }
-    .menu-add {
-        display: none;
-    }
-    .category-box {
-        display: none;
-    }
-    .mean-container .mean-nav ul li ol {
-        padding: 0px;
-    }
-    .mean-container .mean-nav ul li a {
-        padding: 10px 20px;
-        width: 94.8%;
-    }
-    .mean-container .mean-nav ul li li a {
-        width: 92%;
-        padding: 1em 4%;
-    }
-    .mean-container .mean-nav ul li li li a {
-        width: 100%;
-    }
-    .header-search {
-        padding: 15px 0px;
-    }
-    #collapseFilter.d-md-block {
-        padding: 30px 0px;
-    }
-}
-
-
-/*------------------------------------------------------------------- 599px x 280px ---------------------------------------------------------------------*/
-
-@media only screen and (min-width: 280px) and (max-width: 599px) {
-    .cart-content-right {
-        padding-bottom: 5px;
-    }
-    .megamenu>.row [class*="col-"] {
-        padding: 0px;
-    }
-    .menu-area-main .megamenu .men-cat {
-        padding: 0px 15px;
-    }
-    .menu-area-main .megamenu .women-cat {
-        padding: 0px 15px;
-    }
-    .menu-area-main .megamenu .el-cat {
-        padding: 0px 15px;
-    }
-    .mean-container .mean-nav ul li a {
-        padding: 1em 4%;
-        width: 92%;
-    }
-    .mean-container .mean-nav ul li li a {
-        width: 90%;
-        padding: 1em 5%;
-    }
-    .mean-container .sub-full.megamenu-categories ol li a {
-        padding: 5px 0px;
-        text-transform: capitalize;
-        width: 100%;
-    }
-    .megamenu .sub-full.megamenu-categories .women-box .banner-up-text a {
-        width: auto;
-        border: none;
-        float: none;
-    }
-    .menu-area-main {
-        height: 45px;
-        overflow-y: auto;
-    }
-    .mean-container .mean-nav ul li a.mean-expand {
-        top: 0;
+@media (min-width: 1200px) and (max-width: 1342px) {
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 0px 14px;
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-    .logo {
-        width: 10%;
+    .titlepage h2 {
+        font-size: 32px;
     }
-    .banner_taital {
-        font-size: 42px;
+    .about .titlepage::before {
+        right: -16px;
     }
-    .arrival_text {
-        font-size: 28px;
+    .about .titlepage p {
+        line-height: 28px;
+        padding-top: 9px;
     }
-    
-    .mins_text_1 {
-        font-size: 15px;
+    .about .about_img {
+        margin-left: 0px;
     }
-    .mins_text {
-        font-size: 15px;
+    .shop .titlepage {
+        padding-right: 15px;
     }
-    .long_text {
-        font-size: 14px;
-    }
-    .jesusroch_text {
-        padding-top: 280px;
-    }
-    .paly_bt {
-        padding-top: 20px;
-    }
-    .padding_10 {
-        padding-left: 6px;
-    }
-    .icon_2 {
-        font-size: 13px;
-    }
-    .movies_menu::after {
-        width: 670px;
-        left: initial;
-        top: -10px;
-    }
-    .movies_menu {
-        width: 100%;
-    }
-    .movies_menu li {
-        padding: 0px 14px;
-    }
-    .Cooming_soon_taital {
-        font-size: 30px;
-    }
-    .Cooming_soon_taital::after {
-        right: initial;
-        width: 50px;
-        top: 36px;
-    }
-    .code_text {
-        font-size: 23px;
-    }
-    .there_text {
-        font-size: 14px;
+    .d_none {
+        display: none;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .navbar-light .navbar-toggler {
-        border-color: #000;
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 0px 9px;
     }
-    .banner_taital {
-        width: 100%;
-        font-size: 36px;
-        line-height: 50px;
+    .text-bg h1 {
+        margin-left: 31px;
     }
-    .arrival_text {
-        font-size: 28px;
+    .shop .titlepage h2 {
+        font-size: 25px;
+        line-height: 33px;
     }
-    .arrival_text::after {
-        right: initial;
-        width: 70px;
-        top: 32px;
+    .about .about_img {
+        margin-left: 0px;
     }
-    .movies_menu::after {
-        width: 670px;
-        left: initial;
-        top: -10px;
+    .shop .titlepage {
+        padding-right: 15px;
     }
-    .movies_menu {
-        width: 100%;
+    .clients_box p {
+        display: flex;
+        flex-wrap: wrap;
     }
-    .movies_menu li {
-        padding: 0px 14px;
+    .about .titlepage {
+        margin-right: 0;
     }
-    .code_text {
-        font-size: 16px;
+    .about .titlepage::before {
+        background: inherit;
+        right: 0px;
     }
-    .there_text {
-        font-size: 14px;
+    .d_none {
+        display: none;
     }
-    .Cooming_soon_taital {
-        font-size: 30px;
-    }
-    .Cooming_soon_taital::after {
-        right: initial;
-        width: 50px;
-        top: 36px;
-    }
-    .number_text {
-        margin-top: 40px;
-    }
-    .playnow_bt {
-        width: 170px;
+    ul.location_icon li {
+        padding: 0 18px;
     }
 }
 
 @media (min-width: 576px) and (max-width: 767px) {
-    #main_slider a.carousel-control-prev {
-        position: absolute;
-        left: 175px;
-        top: 90%;
+    .text-bg h1 {
+        font-size: 48px;
+    }
+    .logo {
+        padding-top: 5px;
+    }
+    .titlepage h2 {
+        font-size: 31px;
+    }
+    .shop .max_width {
+        padding-left: 15px;
+    }
+    .about .about_img {
+        margin-left: 0px;
+    }
+    .shop .titlepage {
+        padding-right: 15px;
+    }
+    .about .titlepage {
+        margin-right: 0;
+        margin-top: 20px;
+    }
+    .clients_box p {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .about .titlepage::before {
+        background: inherit;
+        right: 0px;
+    }
+    .d_none {
         display: none;
     }
-    #main_slider a.carousel-control-next {
-        position: absolute;
-        left: 236px;
-        top: 90%;
-        display: none;
+    .conta {
+        margin-bottom: 30px;
     }
-    .banner_section {
-        background: #3c0e0e;
-    }
-    .banner_taital {
-        width: 75%;
-        font-size: 42px;
-        line-height: 60px;
-    }
-    .banner_text {
-        width: 100%;
-    }
-    .play_icon {
-        display: none;
-    }
-    .jesusroch_text {
-        padding-top: 240px;
-    }
-    .mins_text {
-        width: 100%;
+    ul.location_icon li {
         font-size: 17px;
+        padding-left: 13px;
     }
-    .icon_2 {
-        font-size: 15px;
+    .position_head .header {
+        background: transparent;
     }
-    .arrival_text {
-        font-size: 40px;
-    }
-    
-    .long_text {
-        font-size: 14px;
-    }
-    .movies_menu li {
-        font-size: 16px;
-        padding: 0px 7px;
-    }
-    .movies_menu::after {
-        width: 510px;
-        text-align: center;
-        right: 0;
-        top: -8px;
-        left: 0px;
-    }
-    .movies_menu {
+    .navigation.navbar {
+        float: right;
+        display: inherit !important;
+        padding: 0;
         width: 100%;
+        padding-top: 2px !important;
+        background: transparent;
     }
-    .movies_main {
-        width: 100%;
-        float: left;
-    }
-    .code_text {
-        font-size: 24px;
-    }
-    .iamge_movies_main {
-        display: initial;
-    }
-    .iamge_movies {
-        margin: 0px;
-    }
-    .newsletter_text {
-        font-size: 34px;
-    }
-    .box_main {
-        width: 100%;
+    .navigation .navbar-collapse {
+        background: #070404;
         padding: 20px;
+        margin-top: 64px;
+        position: absolute;
+        width: 100%;
+        margin-right: 20px;
+        z-index: 999;
     }
-    .email_text {
-        width: 80%;
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: #fff;
     }
-    .right_arrow {
-        width: 20%;
+    .navigation.navbar-dark .navbar-nav .nav-link:focus,
+    .navigation.navbar-dark .navbar-nav .nav-link:hover {
+        color: #03cafc;
     }
-    .cooming_section .row {
-        flex-direction: column-reverse;
+    .navigation.navbar-dark .navbar-nav .active>.nav-link,
+    .navigation.navbar-dark .navbar-nav .nav-link.active,
+    .navigation.navbar-dark .navbar-nav .nav-link.show,
+    .navigation.navbar-dark .navbar-nav .show>.nav-link {
+        color: #03cafc;
     }
-    .Cooming_soon_taital {
-        font-size: 30px;
+    .navigation.navbar-dark .navbar-toggler {
+        border: inherit;
+        float: right;
+        padding-top: 6px;
     }
-    .Cooming_soon_taital::after {
-        right: initial;
-        width: 50px;
-        top: 36px;
-    }
-    .image_17 {
-        margin-top: 30px;
-    }
-    .footer_menu li {
-        padding: 0px 17px;
-    }
-    .number_text {
-        margin-top: 0px;
-    }
-    .playnow_bt {
-        width: 170px;
+    .navigation.navbar-dark .navbar-toggler-icon {
+        background: url(../images/menu_icon.png);
+        background-repeat: no-repeat;
     }
 }
 
 @media (max-width: 575px) {
-    #main_slider a.carousel-control-prev {
-        position: absolute;
-        left: 175px;
-        top: 90%;
-        display: none;
+    .header {
+        padding: 30px 0px 15px 0px;
     }
-    #main_slider a.carousel-control-next {
-        position: absolute;
-        left: 236px;
-        top: 90%;
-        display: none;
-    }
-    .banner_section {
-        background: #3c0e0e;
-    }
-    .banner_taital {
-        width: 95%;
-        font-size: 30px;
-        line-height: 40px;
-    }
-    .banner_text {
-        width: 100%;
-    }
-    .play_icon {
-        display: none;
-    }
-    .jesusroch_text {
-        padding-top: 280px;
-    }
-    .arrival_text {
-        font-size: 40px;
-    }
-    .arrival_text::after {
-        right: initial;
-        width: 80px;
-        top: 42px;
-    }
-    .movie_main {
-        display: initial;
-    }
-    .mins_text_1 {
-        width: 100%;
-    }
-    .long_text {
-        font-size: 14px;
-    }
-    .movies_menu li {
-        font-size: 18px;
-        padding: 0px 7px;
-    }
-    .movies_menu {
-        width: 100%;
-    }
-    .movies_main {
-        width: 100%;
+    .logo {
+        text-align: center !important;
+        padding-bottom: 6px;
+        padding-top: 5px;
         float: left;
     }
-    .iamge_movies {
-        margin: 0;
+    .text-bg h1 {
+        font-size: 28px;
+        line-height: 42px;
     }
-    .iamge_movies_main {
-        display: initial;
+    .titlepage h2 {
+        font-size: 29px;
     }
-    .newsletter_text {
-        font-size: 21px;
+    .shop .max_width {
+        padding-left: 15px;
     }
-    .box_main {
+    .d_none {
+        display: none;
+    }
+    .about .about_img {
+        margin-left: 0px;
+    }
+    .padding_right0 {
+        padding-right: 15px;
+    }
+    .clients_box {
+        margin-left: 0px;
+        padding: 40px 32px 40px 30px;
+    }
+    .clients_box figure {
+        margin-bottom: 20px;
+        margin-left: 0px;
+    }
+    .clients_box p {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .shop .titlepage {
+        padding-right: 15px;
+    }
+    .about .titlepage {
+        margin-right: 0;
+        margin-top: 20px;
+    }
+    .about .titlepage::before {
+        background: inherit;
+        right: 0px;
+    }
+    .main_form {
+        padding: 40px 0px;
+        margin-right: 15px;
+    }
+    .navigation.navbar {
+        float: right;
+        display: inherit !important;
+        padding: 0 !important;
         width: 100%;
+        margin-top: -42px;
+        background: transparent;
+    }
+    .position_head .header {
+        background: transparent;
+    }
+    .navigation .navbar-collapse {
+        background: #070404;
         padding: 20px;
+        margin-top: 55px;
+        position: absolute;
+        width: 100%;
+        margin-right: 20px;
+        z-index: 999;
     }
-    .email_text {
-        width: 80%;
+    .navigation.navbar-dark .navbar-nav .nav-link {
+        padding: 10px 0;
+        color: #fff;
     }
-    .right_arrow {
-        width: 20%;
+    .navigation.navbar-dark .navbar-nav .nav-link:focus,
+    .navigation.navbar-dark .navbar-nav .nav-link:hover {
+        color: #03cafc;
     }
-    .cooming_section .row {
-        flex-direction: column-reverse;
+    .navigation.navbar-dark .navbar-nav .active>.nav-link,
+    .navigation.navbar-dark .navbar-nav .nav-link.active,
+    .navigation.navbar-dark .navbar-nav .nav-link.show,
+    .navigation.navbar-dark .navbar-nav .show>.nav-link {
+        color: #03cafc;
     }
-    .Cooming_soon_taital {
-        font-size: 30px;
+    .navigation.navbar-dark .navbar-toggler {
+        float: right;
+        margin-right: 2px;
+        border: inherit;
     }
-    .Cooming_soon_taital::after {
-        right: initial;
-        width: 50px;
-        top: 36px;
-    }
-    .image_17 {
-        margin-top: 30px;
-    }
-    .footer_menu li {
-        padding: 0px 18px;
-    }
-    .image_2 {
-        margin-top: 30px;
-    }
-    .number_text {
-        margin-top: 0px;
-    }
-    .playnow_bt {
-        width: 170px;
+    .navigation.navbar-dark .navbar-toggler-icon {
+        background: url(../images/menu_icon.png);
+        background-repeat: no-repeat;
     }
 }
+

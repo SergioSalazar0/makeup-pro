@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
-  --blue: #007bff;
+  
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -18,7 +18,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #007bff;
+  --primary: #fc7bf1;
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
@@ -161,14 +161,14 @@ sup {
 }
 
 a {
-  color: #007bff;
+  color: #fc7bf1;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #0056b3;
+  color: #fc7bf1;
   text-decoration: underline;
 }
 
@@ -2358,14 +2358,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #ff5fdc;
+  border-color: #ff3ec5;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #ff5aba;
+  border-color: #cc008f;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2374,15 +2374,15 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #f94dff;
+  border-color: #ff00c8;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0062cc;
-  border-color: #005cbf;
+  background-color: #ff90e7;
+  border-color: #ff6af3;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -2629,37 +2629,37 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #007bff;
+  color: #fc7bf1;
   background-color: transparent;
   background-image: none;
-  border-color: #007bff;
+  border-color: #fc7bf1;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #fc7bf1;
+  border-color: #fc7bf1;
 }
 
 .btn-outline-primary:focus, .btn-outline-primary.focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 104, 210, 0.5);
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #007bff;
+  color: #fc7bf1;
   background-color: transparent;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #fc7bf1;
+  border-color: #fc7bf1;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(255, 124, 216, 0.5);
 }
 
 .btn-outline-secondary {
@@ -2902,7 +2902,7 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #007bff;
+  color: #fc7bf1;
   background-color: transparent;
 }
 
@@ -3161,7 +3161,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #007bff;
+  background-color: #fc7bf1;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -3493,7 +3493,7 @@ input[type="button"].btn-block {
 
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  background-color: #007bff;
+  background-color: #fc7bf1;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
@@ -3551,7 +3551,7 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #fc7bf1;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
@@ -3559,7 +3559,7 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #fc7bf1;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -3579,7 +3579,7 @@ input[type="button"].btn-block {
 }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: #007bff;
+  background-color: #fc7bf1;
 }
 
 .custom-radio .custom-control-input:checked ~ .custom-control-label::after {
@@ -3730,7 +3730,7 @@ input[type="button"].btn-block {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #007bff;
+  background-color: #fc7bf1;
   border: 0;
   border-radius: 1rem;
   -webkit-appearance: none;
@@ -3759,7 +3759,7 @@ input[type="button"].btn-block {
 .custom-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #007bff;
+  background-color: #fc7bf1;
   border: 0;
   border-radius: 1rem;
   -moz-appearance: none;
@@ -3788,7 +3788,7 @@ input[type="button"].btn-block {
 .custom-range::-ms-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #007bff;
+  background-color: #fc7bf1;
   border: 0;
   border-radius: 1rem;
   appearance: none;
@@ -3891,7 +3891,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: #fc7bf1;
 }
 
 .nav-fill .nav-item {
@@ -4638,7 +4638,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #007bff;
+  color: #fc7bf1;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
@@ -4675,8 +4675,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 1;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #fc7bf1;
+  border-color: #fc7bf1;
 }
 
 .page-item.disabled .page-link {
@@ -4748,7 +4748,7 @@ input[type="button"].btn-block {
 
 .badge-primary {
   color: #fff;
-  background-color: #007bff;
+  background-color: #fc7bf1;
 }
 
 .badge-primary[href]:hover, .badge-primary[href]:focus {
@@ -5031,7 +5031,7 @@ input[type="button"].btn-block {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #007bff;
+  background-color: #fc7bf1;
   transition: width 0.6s ease;
 }
 
@@ -5122,8 +5122,8 @@ input[type="button"].btn-block {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #fc7bf1;
+  border-color: #fc7bf1;
 }
 
 .list-group-flush .list-group-item {

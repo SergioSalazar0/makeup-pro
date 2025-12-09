@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Makeup Pro</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <style>
+        /* Colores temáticos maquillaje rosa */
+        :root {
+            --pink: #FF6B9B;
+            --pink-light: #FFE6F0;
+            --pink-hover: #FF4D80;
+            --text-main: #333;
+        }
+
+        body {
+            background-color: var(--pink-light);
+            font-family: 'Arial', sans-serif;
+            color: var(--text-main);
+        }
+
+        header {
+            padding: 15px 25px;
+            background-color: var(--pink);
+            color: white;
+        }
+
+        header h4 {
+            margin: 0;
+        }
+
+        /* Botones */
+        .btn-primary {
+            background-color: var(--pink);
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: var(--pink-hover);
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+        .btn-delete {
+            background-color: #dc3545;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+        }
+
+        /* Tarjetas y listas */
+        #misSelecciones li, #misAlergias li {
+            background-color: white;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        textarea.form-control {
+            border-radius: 8px;
+        }
+
+        button.btn-block {
+            width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="d-flex justify-content-between align-items-center">
+    <h4>Dashboard</h4>
+    <div>
+        <span id="welcomeMsg" class="mr-3"></span>
+        <a href="index.html" class="btn btn-primary btn-sm mr-2">Agregar productos</a>
+        <button id="logoutBtn" class="btn btn-danger btn-sm">Cerrar sesión</button>
+    </div>
+</header>
+
+<div class="container mt-4">
+
+    <div class="row">
+        <!-- Mis productos -->
+        <div class="col-md-8">
+            <h4>Mis productos seleccionados</h4>
+            <ul id="misSelecciones" class="list-group"></ul>
+        </div>
+
+        <!-- Alergias -->
+        <div class="col-md-4">
+            <h4>Mis alergias / comentarios</h4>
+
+            <form id="formAlergia">
+                <textarea name="descripcion" class="form-control mb-2" placeholder="Escribe aquí..."></textarea>
+                <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+            </form>
+
+            <ul id="misAlergias" class="list-group mt-3"></ul>
+        </div>
+    </div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+    const usuarioId = localStorage.getItem('usuarioId');
+
+    if(!usuarioId){
+        alert('Debes iniciar sesión');
+        window.location.href = 'login.html';
+        return;
+    }
+
+    // Mostrar nombre
+    const usuarios = JSON.parse(localStorage.getItem('usuariosCache') || '[]');
+    const usuario = usuarios.find(u => u.id == usuarioId);
+    if(usuario){
+        $('#welcomeMsg').text('Bienvenido, ' + usuario.nombre);
+    }
+
+    // Logout
+    $('#logoutBtn').click(() => {
+        localStorage.removeItem('usuarioId');
+        window.location.href = 'login.html';
+    });
+
+    // Cargar selecciones
+    async function cargarSelecciones(){
+        try{
+            const res = await fetch('http://localhost:3000/selecciones');
+            const selecciones = await res.json();
+
+            $('#misSelecciones').empty();
+
+            const misSel = selecciones.filter(s => s.usuario_id == usuarioId);
+
+            misSel.forEach(s => {
+                $('#misSelecciones').append(`
+                    <li class="list-group-item">
+                        <span>${s.producto_nombre}</span>
+                        <button class="btn-delete" onclick="eliminarSeleccion(${s.id})">Eliminar</button>
+                    </li>
+                `);
+            });
+
+        } catch(err){
+            console.error(err);
+        }
+    }
+
+    window.eliminarSeleccion = async function(id){
+        if(!confirm('¿Eliminar este producto?')) return;
+
+        try{
+            await fetch(`http://localhost:3000/selecciones/${id}`, {
+                method: 'DELETE'
+            });
+            cargarSelecciones();
+        } catch(err){
+            console.error(err);
+        }
+    }
+
+    cargarSelecciones();
+
+});
+</script>
+
+</body>
+</html>

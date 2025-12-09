@@ -1,207 +1,143 @@
-<!doctype html>
-<html lang="en">
-  <head>
-   <!-- basic -->
-   <meta charset="utf-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!-- mobile metas -->
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-   <!-- site metas -->
-   <title>Talleres CBTis258</title>
-   <meta name="keywords" content="">
-   <meta name="description" content="">
-   <meta name="author" content="">
-   <link rel="shortcut icon" href="images/image logo.png" title="Favicon"/>
-   <!-- bootstrap css -->
-   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-   <!-- style css -->
-   <link rel="stylesheet" type="text/css" href="css/style.css">
-   <!-- Responsive-->
-   <link rel="stylesheet" href="css/responsive.css">
-   <!-- fevicon -->
-   <link rel="icon" href="images/fevicon.png" type="image/gif" />
-   <!-- Scrollbar Custom CSS -->
-   <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-   <!-- Tweaks for older IEs-->
-   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-   <!-- owl stylesheets --> 
-   <link rel="stylesheet" href="css/owl.carousel.min.css">
-   <link rel="stylesheet" href="css/owl.theme.default.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-   <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<!DOCTYPE html>
+<html lang="es">
+<head>
     <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="images/image logo.png" title="Favicon"/>
-  <link rel="stylesheet" href="css/register.css">
-  <title>login</title>
-  </head>
-  <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Makeup Pro</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- CSS de la plantilla -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
     <style>
-        body { background-image: url("img-actu/alexa.jpeg");}
-    </style>   
-    <!-- header section start -->
-    <div class="header_section">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <a class="logo" href="index.html"><img src="images/logoop1.png"></a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Registro centrado */
+        .register-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-container {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .auth-container h2 {
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #fc03be;
+        }
+
+        .auth-container input.form-control {
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        .auth-container button {
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .auth-container p {
+            margin-top: 15px;
+        }
+
+        .auth-container a {
+            color: #fc038c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-container a:hover {
+            text-decoration: underline;
+        }   
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Makeup Pro</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav mr-auto">
-               <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Principal</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="culturales.html">Culturales</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="deportes.html">Deportes</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="civicos.html">Civicos</a>
-               </li>
+                <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item active"><a class="nav-link" href="login.html">Login</a></li>
+                <li class="nav-item d_none sea_icon"><a class="nav-link" href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i><i class="fa fa-search" aria-hidden="true"></i></a></li>
             </ul>
-           
-            <div class="search_icon"><a href="login.html"><img src="images/user-icon.png"><span class="padding_left_15">Ingresar</span></a></div>
-            <div class="search_icon"><a href="#"><img src="images/search-icon.png"><span class="padding_left_15">Buscar...</span></a>
-            
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Notificación de Búsqueda</title>
-                    <link rel="stylesheet" href="styles.css">
-                </head>
-                
-               
-                </div>
-         </div>
-      </nav>
-   </div>
-   <!-- header section end -->
-   
-   <section class="form-register">
-      <h4>Crea tu cuenta</h4>
-      <p style="text-align: center; color: #ccc; margin-bottom: 20px;">
-          Registra tu cuenta
-      </p>
-      <form id="registerForm">
-          <input class="controls" type="email" name="email" id="email" placeholder="Correo Electrónico" required>
-          <input class="controls" type="password" name="password" id="password" placeholder="Contraseña (mínimo 6 caracteres)" required>
-          
-          <div class="select-container">
-              <label for="taller_interes">¿Te interesa algún taller? (opcional):</label>
-              <select class="controls" name="taller_interes" id="taller_interes">
-                  <option value="">Exploraré los talleres después...</option>
-                  <!-- Opciones se cargarán dinámicamente -->
-              </select>
-          </div>
-          
-          <div style="background: #1f53c5; padding: 10px; border-radius: 4px; margin: 15px 0;">
-              <small style="color: white;">
-                  📝 <strong>Después del registro:</strong><br>
-                  • Podrás completar tu perfil desde el dashboard<br>
-              </small>
-          </div>
-          
-          <p>Estoy de acuerdo con estos <a href="#">Términos y Condiciones</a></p>
-          <button class="botons" type="submit">Crear mi cuenta</button>
-          <p><a href="login.html">¿Ya tienes una cuenta?</a></p>
-      </form>
-  </section>
+        </div>
+    </nav>
 
+    <!-- Registro centrado -->
+    <div class="register-wrapper">
+        <div class="auth-container">
+            <h2>Registro</h2>
+            <form id="formRegistro">
+                <input type="text" name="nombre" placeholder="Nombre" required class="form-control">
+                <input type="email" name="email" placeholder="Email" required class="form-control">
+                <input type="password" name="password" placeholder="Contraseña" required class="form-control">
+                <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+            </form>
+            <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+        </div>
+    </div>
 
-  <script src="./js/config.js"></script>
+    <!-- jQuery y Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 
+    <!-- Script de registro funcional -->
+    <script>
+    $(function() {
+        $('#formRegistro').on('submit', async function(e) {
+            e.preventDefault();
+            const form = $(this);
+            const nombre = form.find('input[name="nombre"]').val();
+            const email = form.find('input[name="email"]').val();
+            const password = form.find('input[name="password"]').val();
 
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script>
+            try {
+                const res = await fetch('http://localhost:3000/usuarios', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({nombre, email, password})
+                });
+                const data = await res.json();
 
-      
-      // Cargar talleres disponibles al cargar la página
-      document.addEventListener('DOMContentLoaded', async () => {
-          await cargarTalleres();
-      });
-      
-      // Función para cargar talleres en el dropdown
-      async function cargarTalleres() {
-          try {
-              const response = await axios.get(`${API_BASE_URL}/talleres`);
-              const talleres = response.data.data || response.data;
-              
-              const selectTaller = document.getElementById('taller_interes');
-              
-              talleres.forEach(taller => {
-                  const option = document.createElement('option');
-                  option.value = taller.id;
-                  option.textContent = `${taller.nombre} (${taller.categoria})`;
-                  selectTaller.appendChild(option);
-              });
-          } catch (error) {
-              console.error('Error al cargar talleres:', error);
-          }
-      }
+                if (!res.ok) {
+                    return alert(data.error || 'Error registrando usuario');
+                }
 
-      const registerForm = document.querySelector('#registerForm');
-      
-      // Al enviar el formulario
-      registerForm.addEventListener('submit', async (e) => {
-          e.preventDefault();
+                alert(`Usuario registrado con éxito!\nID: ${data.id}\nNombre: ${data.nombre}`);
+                form[0].reset();
+                window.location.href = 'login.html';
+            } catch (err) {
+                console.error(err);
+                alert('Error conectando con el servidor');
+            }
+        });
+    });
+    </script>
 
-          const formData = {
-              email: e.target.email.value,
-              password: e.target.password.value
-          };
-
-          try {
-              const response = await axios.post(`${API_BASE_URL}/auth/register`, formData);
-
-              if (response.status === 201) {
-                  // Guardar token para después intentar inscripción
-                  const token = response.data.token;
-                  const tallerSeleccionado = e.target.taller_interes.value;
-                  
-                  // Mostrar mensaje de éxito
-                  alert(`¡Registro exitoso! ${response.data.message}`);
-                  
-                  // Si seleccionó un taller, intentar inscripción automática
-                  if (tallerSeleccionado && token) {
-                      try {
-                          await axios.post(
-                              `${API_BASE_URL}/talleres/${tallerSeleccionado}/inscripcion`,
-                              { 
-                                  comentarios: 'Inscripción automática desde registro - Completar perfil pendiente' 
-                              },
-                              { headers: { Authorization: `Bearer ${token}` } }
-                          );
-                          alert('¡También te hemos pre-inscrito al taller seleccionado! Completa tu perfil para confirmar la inscripción.');
-                      } catch (error) {
-                          console.error('Error al inscribir al taller:', error);
-                          alert('Nota: No pudimos inscribirte automáticamente al taller. Podrás hacerlo desde tu dashboard.');
-                      }
-                  }
-                  
-                  // Guardar token y redirigir al login para que el usuario ingrese
-                  localStorage.setItem('newUserToken', token);
-                  localStorage.setItem('needsProfile', 'true');
-                  
-                  setTimeout(() => {
-                      window.location.href = 'login.html';
-                  }, 2000);
-              }
-          } catch (error) {
-              console.error('Error al registrar:', error);
-              
-              if (error.response?.data?.details) {
-                  const errores = error.response.data.details.map(err => err.message).join('\n');
-                  alert(`Errores de validación:\n${errores}`);
-              } else {
-                  alert(error.response?.data?.message || 'Ocurrió un error, por favor intente más tarde.');
-              }
-          }
-      });
-  </script>
-    </body>
+</body>
 </html>
