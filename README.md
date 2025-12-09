@@ -1,4 +1,4 @@
-# 💄 Mekeup Pro - Sistema de Gestión de Servicios de Maquillaje
+# 💄 Makeup Pro - Sistema de Gestión de Servicios de Maquillaje
 
 **Elevator Pitch:**  
 Rápido, confiable y creativo; Mekeup Pro es una aplicación que facilita el trabajo de la persona profesionista y brinda comodidad a la clienta. La app permite enviar el maletín de maquillaje con todo lo necesario según la solicitud de la clienta, mostrando colores, labiales y tipos de maquillaje predefinidos, además de permitir comentarios y especificar alergias o preferencias.  
